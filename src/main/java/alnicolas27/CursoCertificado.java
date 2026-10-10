@@ -13,6 +13,10 @@ public class CursoCertificado extends Curso implements ConDiploma {
         this.estaEmitido = estaEmitido;
     }
 
+    public CursoCertificado(String codigo, double duracion, String entidadCertificadora, boolean estaAlDia) {
+        this(codigo, duracion, 30, entidadCertificadora, estaAlDia, false);
+    }
+
     public String getEntidadCertificadora() {
         return entidadCertificadora;
     }
@@ -52,7 +56,8 @@ public class CursoCertificado extends Curso implements ConDiploma {
     @Override
     public String calcularInfo() {
         return "Codigo: " + getCodigo() + " | Duracion: " + getDuracion() + " | CupoMaximo: " + getCupoMaximo()
-                + " | Entidad certificadora: " + getEntidadCertificadora() + " | Evaluación final al día: " + isEstaAlDia();
+                + " | Entidad certificadora: " + getEntidadCertificadora() + " | Evaluación al día: " + isEstaAlDia()
+                + " | Diploma emitido: " + isEstaEmitido() + " | Costo: $" + calcularCosto();
     }
 
     @Override
@@ -67,7 +72,7 @@ public class CursoCertificado extends Curso implements ConDiploma {
             return false;
         }
         this.estaEmitido = true;
-        System.out.println("Diploma emitido correctamente.");
+        System.out.println("Diploma emitido correctamente para el curso " + getCodigo());
         return true;
     }
 }

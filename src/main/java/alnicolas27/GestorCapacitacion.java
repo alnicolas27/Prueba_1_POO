@@ -31,4 +31,16 @@ public class GestorCapacitacion {
 
         return cursosEncontrados;
     }
+
+    public List<Curso> obtenerTodos() {
+        return new ArrayList<>(cursos);
+    }
+
+    public double calcularCostoTotal() {
+        double total = 0;
+        for (Curso curso : cursos) {
+            total += curso.calcularCosto();
+        }
+        return total;
+    }
 }

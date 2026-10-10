@@ -11,6 +11,10 @@ public abstract class Curso {
         setCupoMaximo(cupoMaximo);
     }
 
+    public Curso(String codigo, double duracion) {
+        this(codigo, duracion, 30);
+    }
+
     public String getCodigo() {
         return codigo;
     }
@@ -46,8 +50,6 @@ public abstract class Curso {
 
     public abstract double calcularCosto();
     public abstract String calcularInfo();
-    public abstract boolean tieneDiplomaEmitido();
-    public abstract boolean emitirDiploma();
 
     @Override
     public String toString() {

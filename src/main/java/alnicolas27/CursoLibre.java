@@ -8,6 +8,10 @@ public class CursoLibre extends Curso {
         setCantidadInscritos(cantidadInscritos);
     }
 
+    public CursoLibre(String codigo, double duracion, int cantidadInscritos) {
+        this(codigo, duracion, 30, cantidadInscritos);
+    }
+
     public int getCantidadInscritos() {
         return cantidadInscritos;
     }
@@ -31,16 +35,6 @@ public class CursoLibre extends Curso {
     @Override
     public String calcularInfo() {
         return "Codigo: " + getCodigo() + " | Duracion: " + getDuracion() + " | CupoMaximo: " + getCupoMaximo()
-                + " | Inscritos: " + cantidadInscritos;
-    }
-
-    @Override
-    public boolean tieneDiplomaEmitido() {
-        return false;
-    }
-
-    @Override
-    public boolean emitirDiploma() {
-        return false;
+                + " | Inscritos: " + cantidadInscritos + " | Costo: $" + calcularCosto();
     }
 }
